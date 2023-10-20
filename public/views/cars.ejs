@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ar</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+    <h1>Cars</h1>
+    <table>
+        <tr>
+            <th>make</th>
+            <th>model</th>
+            <th>year</th>
+            <th>price</th>
+            <th>Actions</th>
+        </tr>
+        <% for(var i=0; i < cars.length; i++) { %>
+        <tr>
+            <td><%= cars[i].make %></td>
+            <td><%= cars[i].model %></td>
+            <td><%= cars[i].year %></td>
+            <td><%= cars[i].price %></td>
+            <td>
+                <a href="/car/<%= cars[i].id %>">View</a>
+                <a href="/update1/<%= cars[i].id %>">Edit</a>
+                <a href="/delete1/<%= cars[i].id %>">Delete</a>
+            </td> 
+        </tr>
+        <% } %>
+    </table>
+    <a href="/create1">Create New car</a>
+</body>
+</html>
