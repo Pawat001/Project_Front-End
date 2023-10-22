@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ar</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+    <h1>results</h1>
+    <table>
+        <tr>
+            <th>id_owner</th>
+            <th>id_car</th>
+            <th>Actions</th>
+        </tr>
+        <% for(var i=0; i < owners.length; i++) { %>
+        <tr>
+            <td><%= results[i].id_owner %></td>
+            <td><%= results[i].id_car %></td>
+            <td>
+                <a href="/result/<%= results[i].id %>">View</a>
+                <a href="/update3/<%= results[i].id %>">Edit</a>
+                <a href="/delete3/<%= results[i].id %>">Delete</a>
+            </td> 
+        </tr>
+        <% } %>
+    </table>
+    <a href="/create3">Create New car</a>
+</body>
+</html>

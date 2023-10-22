@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>result</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+    <h1>View result</h1>
+    <table class="car-table">
+        <tr>
+            <th>id_owner</th>
+            <th>id_car</th>
+        </tr>
+        <tr>
+            <td><%= results.id_owner %></td>
+            <td><%= results.id_car %></td>
+        </tr>
+    </table>
+    <div class="link-center">
+        <a href="/update3/<%= result.id %>">Edit</a>
+        <a href="/delete3/<%= result.id %>">Delete</a>
+        <a href="/">Back to List</a>
+    </div>
+</body>
+</html>

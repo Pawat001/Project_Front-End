@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Result</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+    <h1>Update Result</h1>
+    <form method="post" action="/update2/<%= car.id %>">
+        <label for="id_owner">Id_owner</label>
+        <input type="text" id="id_owner" name="id_owner">
+        <br>
+        <label for="id_car">Id_car</label>
+        <input type="number" id="id_car" name="id_car">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+<a href="/result/<%= result.id %>">View</a>
+<a href="/delete3/<%= result.id %>">Delete</a>
+<a href="/">Back to List</a>
+</body>
+</html>
