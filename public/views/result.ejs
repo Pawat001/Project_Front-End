@@ -12,14 +12,15 @@
             <th>id_car</th>
         </tr>
         <tr>
-            <td><%= results.id_owner %></td>
-            <td><%= results.id_car %></td>
+            <td><%= result.id_owner %></td>
+            <td><%= result.id_car %></td>
         </tr>
     </table>
     <div class="link-center">
         <a href="/update3/<%= result.id %>">Edit</a>
         <a href="/delete3/<%= result.id %>">Delete</a>
-        <a href="/">Back to List</a>
+        <a href="/results">Back to List</a>
+        <a href="/">Home</a>
     </div>
 </body>
 </html>

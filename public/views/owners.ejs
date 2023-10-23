@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ar</title>
+    <title>Owner</title>
     <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
@@ -14,8 +14,8 @@
         </tr>
         <% for(var i=0; i < owners.length; i++) { %>
         <tr>
-            <td><%= cars[i].name %></td>
-            <td><%= cars[i].age %></td>
+            <td><%= owners[i].name %></td>
+            <td><%= owners[i].age %></td>
             <td>
                 <a href="/owner/<%= owners[i].id %>">View</a>
                 <a href="/update2/<%= owners[i].id %>">Edit</a>
@@ -24,6 +24,7 @@
         </tr>
         <% } %>
     </table>
-    <a href="/create2">Create New car</a>
+    <a href="/create2">Create Owner</a>
+    <a href="/">Home</a>
 </body>
 </html>

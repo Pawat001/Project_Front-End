@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Update Result</h1>
-    <form method="post" action="/update2/<%= car.id %>">
+    <form method="post" action="/update3/<%= result.id %>">
         <label for="id_owner">Id_owner</label>
         <input type="text" id="id_owner" name="id_owner">
         <br>
@@ -17,6 +17,7 @@
     </form>
 <a href="/result/<%= result.id %>">View</a>
 <a href="/delete3/<%= result.id %>">Delete</a>
-<a href="/">Back to List</a>
+<a href="/results">Back to List</a>
+<a href="/">Home</a>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>summary</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+    <h1>Summary</h1>
+    <table>
+        <tr>
+            <th>owner_name</th>
+            <th>cars_model</th>
+        </tr>
+        <% for(var i=0; i < summary.length; i++) { %>
+        <tr>
+            <td><%= summary[i].owner_name %></td>
+            <td><%= summary[i].cars_model %></td>
+        </tr>
+        <% } %>
+    </table>
+    <a href="/">Home</a>
+</body>
+</html>

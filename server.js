@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/public'));
+app.get("/",async (req, res) => {
+    res.render("home");
+});
 
 app.get("/cars",async (req, res) => {
     try {
@@ -43,7 +46,7 @@ app.post("/create1", async (req, res) => {
     try {
         const data = { make: req.body.make, model: req.body.model ,year: req.body.year, price: req.body.price };
         await axios.post(base_url + '/cars', data);
-        res.redirect("/");
+        res.redirect("/cars");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -65,7 +68,7 @@ app.post("/update1/:id", async (req, res) => {
     try {
         const data = { make: req.body.make, model: req.body.model ,year: req.body.year, price: req.body.price };
         await axios.put(base_url + '/cars/' + req.params.id, data);
-        res.redirect("/");
+        res.redirect("/cars");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -75,7 +78,7 @@ app.post("/update1/:id", async (req, res) => {
 app.get("/delete1/:id", async (req, res) => {
     try {
         await axios.delete(base_url + '/cars/' + req.params.id);
-            res.redirect("/");
+            res.redirect("/cars");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -84,7 +87,7 @@ app.get("/delete1/:id", async (req, res) => {
 
 //table2
 
-app.get("/car",async (req, res) => {
+app.get("/owners",async (req, res) => {
     try {
         const response = await axios.get(base_url + '/owners');
         res.render("owners", { owners: response.data });
@@ -94,10 +97,10 @@ app.get("/car",async (req, res) => {
     }
 });
 
-app.get("/car/:id", async (req, res) => {
+app.get("/owner/:id", async (req, res) => {
     try {
         const response = await axios.get(base_url + '/owners/' + req.params.id);
-        res.render("owners", { owner: response.data });
+        res.render("owner", { owner: response.data });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -113,7 +116,7 @@ app.post("/create2", async (req, res) => {
     try {
         const data = { name: req.body.name, age: req.body.age };
         await axios.post(base_url + '/owners', data);
-        res.redirect("/");
+        res.redirect("/owners");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -134,8 +137,8 @@ app.get("/update2/:id", async (req, res) => {
 app.post("/update2/:id", async (req, res) => {
     try {
         const data = { name: req.body.name, age: req.body.age };
-        await axios.put(base_url + '/cars/' + req.params.id, data);
-        res.redirect("/");
+        await axios.put(base_url + '/owners/' + req.params.id, data);
+        res.redirect("/owners");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -145,7 +148,7 @@ app.post("/update2/:id", async (req, res) => {
 app.get("/delete2/:id", async (req, res) => {
     try {
         await axios.delete(base_url + '/owners/' + req.params.id);
-            res.redirect("/");
+            res.redirect("/owners");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -153,20 +156,20 @@ app.get("/delete2/:id", async (req, res) => {
 });
 
 //table3
-app.get("/car",async (req, res) => {
+app.get("/results",async (req, res) => {
     try {
         const response = await axios.get(base_url + '/results');
-        res.render("results", { result: response.data });
+        res.render("results", { results: response.data });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
     }
 });
 
-app.get("/car/:id", async (req, res) => {
+app.get("/result/:id", async (req, res) => {
     try {
         const response = await axios.get(base_url + '/results/' + req.params.id);
-        res.render("results", { result: response.data });
+        res.render("result", { result: response.data });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -182,7 +185,7 @@ app.post("/create3", async (req, res) => {
     try {
         const data = { id_owner: req.body.id_owner, id_car: req.body.id_owner };
         await axios.post(base_url + '/results', data);
-        res.redirect("/");
+        res.redirect("/results");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -204,7 +207,7 @@ app.post("/update3/:id", async (req, res) => {
     try {
         const data = { id_owner: req.body.id_owner, id_car: req.body.id_owner };
         await axios.put(base_url + '/results/' + req.params.id, data);
-        res.redirect("/");
+        res.redirect("/results");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -214,12 +217,23 @@ app.post("/update3/:id", async (req, res) => {
 app.get("/delete3/:id", async (req, res) => {
     try {
         await axios.delete(base_url + '/results/' + req.params.id);
-            res.redirect("/");
+            res.redirect("/results");
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
     }
 });
+//summary
+app.get("/summary",async (req, res) => {
+    try {
+        const response = await axios.get(base_url + '/summary');
+        res.render("summary", { summary: response.data });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error');
+    }
+});
+
 
 app.listen(8080, () => {
     console.log('Server started on port 8080');

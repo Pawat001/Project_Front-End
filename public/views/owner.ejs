@@ -12,14 +12,15 @@
             <th>age</th>
         </tr>
         <tr>
-            <td><%= owners.name %></td>
-            <td><%= owners.age %></td>
+            <td><%= owner.name %></td>
+            <td><%= owner.age %></td>
         </tr>
     </table>
     <div class="link-center">
         <a href="/update2/<%= owner.id %>">Edit</a>
         <a href="/delete2/<%= owner.id %>">Delete</a>
-        <a href="/">Back to List</a>
+        <a href="/owners">Back to List</a>
+        <a href="/">Home</a>
     </div>
 </body>
 </html>
