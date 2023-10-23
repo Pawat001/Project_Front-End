@@ -183,7 +183,7 @@ app.get("/create3", (req, res) => {
 
 app.post("/create3", async (req, res) => {
     try {
-        const data = { id_owner: req.body.id_owner, id_car: req.body.id_owner };
+        const data = { id_owner: req.body.id_owner, id_car: req.body.id_car };
         await axios.post(base_url + '/results', data);
         res.redirect("/results");
     } catch (err) {
@@ -205,7 +205,7 @@ app.get("/update3/:id", async (req, res) => {
 
 app.post("/update3/:id", async (req, res) => {
     try {
-        const data = { id_owner: req.body.id_owner, id_car: req.body.id_owner };
+        const data = { id_owner: req.body.id_owner, id_car: req.body.id_car };
         await axios.put(base_url + '/results/' + req.params.id, data);
         res.redirect("/results");
     } catch (err) {
