@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 
-
+//port of backend
 const base_url = "http://localhost:3000"
 
 app.set("views", path.join(__dirname, "/public/views"));
@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/public'));
 app.get("/",async (req, res) => {
     res.render("home");
 });
-
+//all data
 app.get("/cars",async (req, res) => {
     try {
         const response = await axios.get(base_url + '/cars');
@@ -26,7 +26,7 @@ app.get("/cars",async (req, res) => {
         res.status(500).send('Error');
     }
 });
-
+//data by id
 app.get("/car/:id", async (req, res) => {
     try {
         const response = await axios.get(base_url + '/cars/' + req.params.id);
@@ -37,7 +37,7 @@ app.get("/car/:id", async (req, res) => {
     }
 });
  
-
+//create
 app.get("/create1", (req, res) => {
     res.render("create1");
 });
@@ -52,7 +52,7 @@ app.post("/create1", async (req, res) => {
         res.status(500).send('Error');
     }
 });
-
+//update
 app.get("/update1/:id", async (req, res) => {
     try {
         const response = await axios.get(
@@ -63,7 +63,7 @@ app.get("/update1/:id", async (req, res) => {
         res.status(500).send('Error');
     }
 });
-
+//updata post
 app.post("/update1/:id", async (req, res) => {
     try {
         const data = { make: req.body.make, model: req.body.model ,year: req.body.year, price: req.body.price };
@@ -74,7 +74,7 @@ app.post("/update1/:id", async (req, res) => {
         res.status(500).send('Error');
     }
 });
-
+//delete
 app.get("/delete1/:id", async (req, res) => {
     try {
         await axios.delete(base_url + '/cars/' + req.params.id);
